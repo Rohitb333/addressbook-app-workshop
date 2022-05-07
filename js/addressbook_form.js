@@ -69,8 +69,8 @@ const save = (event) => {
     //   event.stopPropagation();
     try {
         setContactObject();
-        createAddressBook();
         createAndUpdateStorage();
+        // resetForm();
     } catch (e) {
         console.log(e);
         return;
@@ -188,4 +188,27 @@ const setContactData = (contactData) => {
 const setTextValue = (id, value) => {
     const element = document.querySelector(id);
     element.textContent = value;
+}
+
+
+//   uc9
+
+const resetForm = () => {
+    setValue('#name', '');
+    setValue('#address', '');
+    setSelectedIndex('#city', 0);
+    setSelectedIndex('#state', 0);
+    setValue('#zip', '');
+    setValue('#phone', '');
+    setValue('#email', '');
+}
+
+const setValue = (id, value) => {
+    const element = document.querySelector(id);
+    element.value = value;
+}
+
+const setSelectedIndex = (id, index) => {
+    const element = document.querySelector(id);
+    element.selectedIndex = index;
 }
